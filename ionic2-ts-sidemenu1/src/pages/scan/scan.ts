@@ -4,6 +4,8 @@ import { BarcodeScanner } from 'ionic-native';
 import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { BarcodeData } from "../page1/page1";
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'page-scan',
@@ -12,9 +14,14 @@ import { BarcodeData } from "../page1/page1";
 
 export class ScanPage {
     barcodeData: BarcodeData;
+    name: any;
 
-    constructor(private nav: NavController, navParams: NavParams) {
+    constructor(private nav: NavController, navParams: NavParams, public http: Http) {
         this.barcodeData = navParams.get('details');
+        this.http.get('http://10.140.138.248:8080/api/upc/' + this.barcodeData.text).map(res => res.json()).subscribe(data => {
+            this.name = data["desc"];
+            // have the data from the server
+        });
     }
 
     back() {
