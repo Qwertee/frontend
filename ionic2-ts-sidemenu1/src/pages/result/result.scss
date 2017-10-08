@@ -1,0 +1,39 @@
+page-result {
+  .content {
+    height: 100%;
+    display: block;
+  }
+
+  .icons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .icon {
+    font-size: 10em;
+  }
+
+  span {
+    font-size: 2em;
+  }
+
+  .good {
+    color: #009d00;
+    display: block;
+  }
+
+  .bad {
+    color: #d40000;
+    display: block;
+  }
+
+  .idk {
+    color: #3fb0ff;
+    display: block;
+  }
+}

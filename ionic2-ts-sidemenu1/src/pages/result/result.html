@@ -1,0 +1,17 @@
+<ion-content class="content">
+  <div class="icons">
+    <div *ngIf="true">
+      <ion-icon class="good" name="checkmark-circle"></ion-icon>
+      <span>No allergens found!</span>
+    </div>
+    <div *ngIf="false">
+      <ion-icon class="bad" name="alert"></ion-icon>
+      <span>Allergy Alert</span>
+    </div>
+    <div *ngIf="false">
+      <ion-icon class="idk" name="help-circle"></ion-icon>
+      <span>
+      We couldn't find that item.</span>
+    </div>
+  </div>
+</ion-content>

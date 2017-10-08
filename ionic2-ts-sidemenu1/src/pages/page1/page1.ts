@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from 'ionic-native';
-import { ScanPage } from '../scan/scan';
+import { ResultPage } from '../result/result';
 
 import { NavController } from 'ionic-angular';
 
@@ -12,7 +12,7 @@ export class Page1 {
 
     allergens: any;
 
-    constructor(public navCtrl: NavController, private nav: NavController) {
+    constructor(private nav: NavController) {
     }
 
     onLink(url: string) {
@@ -23,8 +23,7 @@ export class Page1 {
         BarcodeScanner.scan()
             .then((result) => {
                 if (!result.cancelled) {
-                    const barcodeData = new BarcodeData(result.text, result.format);
-                    this.scanDetails(barcodeData);
+                    this.showResults(result.text);
                 }
             })
             .catch((err) => {
@@ -32,16 +31,10 @@ export class Page1 {
             })
     }
 
-    scanDetails(details) {
-        this.nav.push(ScanPage, { details: details, allergens: this.allergens });
+    showResults(barcode) {
+        this.nav.push(ResultPage, {
+             barcode: barcode,
+             allergens: this.allergens
+        });
     }
-
-}
-
-
-export class BarcodeData {
-    constructor(
-        public text: String,
-        public format: String
-    ) { }
 }

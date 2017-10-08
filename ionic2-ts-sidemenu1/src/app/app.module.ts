@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { ScanPage } from '../pages/scan/scan';
+import { ResultPage } from '../pages/result/result';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -11,8 +12,8 @@ import { HttpModule } from '@angular/http';
     MyApp,
     Page1,
     Page2,
-    ScanPage
-
+    ScanPage,
+    ResultPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -22,7 +23,8 @@ import { HttpModule } from '@angular/http';
     MyApp,
     Page1,
     Page2,
-    ScanPage
+    ScanPage,
+    ResultPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
