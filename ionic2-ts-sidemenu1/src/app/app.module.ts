@@ -6,12 +6,14 @@ import { Page2 } from '../pages/page2/page2';
 import { ScanPage } from '../pages/scan/scan';
 import { ResultPage } from '../pages/result/result';
 import { HttpModule } from '@angular/http';
+import { Page3 } from '../pages/page3/page3';
 
 @NgModule({
   declarations: [
     MyApp,
     Page1,
     Page2,
+    Page3,
     ScanPage,
     ResultPage
   ],
@@ -23,6 +25,7 @@ import { HttpModule } from '@angular/http';
     MyApp,
     Page1,
     Page2,
+    Page3,    
     ScanPage,
     ResultPage
   ],

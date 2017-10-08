@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
-import { Page3 } from '../page3/page3';
 
 @Component({
-  selector: 'page-page2',
-  templateUrl: 'page2.html'
+  selector: 'page-page3',
+  templateUrl: 'page3.html'
 })
-export class Page2 {
+export class Page3 {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public nav: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -29,14 +28,15 @@ export class Page2 {
       });
     }
   }
+//  click() {
+  //  this.nav.push(ResultPage);
+//  }
 
-  click() {
-    this.nav.push(Page3);
-}
+
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.nav.push(Page2, {
+    this.navCtrl.push(Page3, {
       item: item
     });
   }
