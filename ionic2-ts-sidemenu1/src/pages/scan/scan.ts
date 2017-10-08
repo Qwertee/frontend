@@ -16,10 +16,14 @@ export class ScanPage {
     barcodeData: BarcodeData;
     imageUrl: any;
     name: any;
+    allergens: any;
     ingredients: any[] = [];
 
     constructor(private nav: NavController, navParams: NavParams, public http: Http) {
         this.barcodeData = navParams.get('details');
+        // allergens that were selected on the start screen
+        this.allergens = navParams.get('allergens');
+
         this.http.get('http://10.140.138.248:8080/api/upc/' + this.barcodeData.text).map(res => res.json()).subscribe(data => {
             this.name = data["desc"];
             this.imageUrl = data["image"];

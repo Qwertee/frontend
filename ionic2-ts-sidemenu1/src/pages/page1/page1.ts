@@ -10,6 +10,8 @@ import { NavController } from 'ionic-angular';
 })
 export class Page1 {
 
+    allergens: any;
+
     constructor(public navCtrl: NavController, private nav: NavController) {
     }
 
@@ -31,7 +33,7 @@ export class Page1 {
     }
 
     scanDetails(details) {
-        this.nav.push(ScanPage, { details: details });
+        this.nav.push(ScanPage, { details: details, allergens: this.allergens });
     }
 
 }
