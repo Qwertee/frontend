@@ -18,12 +18,16 @@
 <ion-content class="home">
   <ion-list no-border>
     <ion-item>
-      <b>Name: </b> 
+      <ion-note item-start>
+        Name:
+      </ion-note>
       {{ name }}
     </ion-item>
 
-    <ion-list-header class="floatLeft">Barcode</ion-list-header>
-    <ion-item class="floatRight">
+    <ion-item>
+      <ion-note item-start>
+        Barcode
+      </ion-note>
       {{ barcodeData.text }}
     </ion-item>
 
