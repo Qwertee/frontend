@@ -14,12 +14,16 @@ import 'rxjs/add/operator/map';
 
 export class ScanPage {
     barcodeData: BarcodeData;
+    imageUrl: any;
     name: any;
+    ingredients: any[] = [];
 
     constructor(private nav: NavController, navParams: NavParams, public http: Http) {
         this.barcodeData = navParams.get('details');
         this.http.get('http://10.140.138.248:8080/api/upc/' + this.barcodeData.text).map(res => res.json()).subscribe(data => {
             this.name = data["desc"];
+            this.imageUrl = data["image"];
+            this.ingredients = data["ingredients"];
             // have the data from the server
         });
     }

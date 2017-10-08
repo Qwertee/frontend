@@ -1,3 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Result</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!---------------------------------------------->
 
 <ion-navbar *navbar>
   <ion-title>
@@ -7,19 +17,24 @@
 
 <ion-content class="home">
   <ion-list no-border>
-    <ion-list-header>Barcode</ion-list-header>
     <ion-item>
-      {{ barcodeData.text }}
-    </ion-item>
-    <ion-list-header>Format</ion-list-header>
-    <ion-item>
-      {{ barcodeData.format }}
-    </ion-item>
-
-    <ion-list-header>Recieved Data</ion-list-header>
-    <ion-item>
+      <b>Name: </b> 
       {{ name }}
     </ion-item>
-    <button block (click)="back()">Back</button>
+
+    <ion-list-header class="floatLeft">Barcode</ion-list-header>
+    <ion-item class="floatRight">
+      {{ barcodeData.text }}
+    </ion-item>
+
+    <ion-list-header>Ingredients</ion-list-header>
+    <ion-item *ngFor="let ingred of ingredients">
+      {{ ingred }}
+    </ion-item>
+
+    <ion-item>
+      <img [src]="imageUrl" />
+    </ion-item>
+    <button ion-button block (click)="back()">Back</button>
   </ion-list>
 </ion-content>
